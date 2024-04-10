@@ -12,6 +12,7 @@ import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.databinding.FragmentCaloriesBinding
 import aps.foodfit.jyrbf.ui.RacionActivity
 import aps.foodfit.jyrbf.ui.welcome.FOOD_FIT_PREFS_NAME
+import aps.foodfit.jyrbf.ui.welcome.IS_FIRST_LAUNCH
 
 class CaloriesFragment : Fragment() {
     private val binding by lazy { FragmentCaloriesBinding.inflate(layoutInflater) }
@@ -36,6 +37,7 @@ class CaloriesFragment : Fragment() {
                     getString(R.string.need_enter_calories), Toast.LENGTH_SHORT).show()
             }else{
                 prefs.edit().putString("calories", weight).apply()
+                prefs.edit().putBoolean(IS_FIRST_LAUNCH, false).apply()
                 val intent = Intent(requireContext(), RacionActivity::class.java)
                 startActivity(intent)
             }

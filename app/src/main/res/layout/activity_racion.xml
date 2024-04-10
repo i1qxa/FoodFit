@@ -7,4 +7,81 @@
     android:layout_height="match_parent"
     tools:context=".ui.RacionActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/foodConteiner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="aps.foodfit.jyrbf.ui.racion.RacionFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomMenuBackground"
+        />
+
+    <ImageView
+        android:id="@+id/bottomMenuBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/bottom_menu_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        />
+
+    <ImageView
+        android:id="@+id/racionIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/recipeIcon"
+        app:layout_constraintTop_toTopOf="@id/bottomMenuBackground"
+        app:layout_constraintBottom_toTopOf="@id/tvRacion"
+        android:src="@drawable/racion_icon"
+        app:layout_constraintHeight_percent="0.05"
+        />
+
+    <TextView
+        android:id="@+id/tvRacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/racionIcon"
+        app:layout_constraintEnd_toEndOf="@id/racionIcon"
+        app:layout_constraintTop_toBottomOf="@id/racionIcon"
+        app:layout_constraintBottom_toBottomOf="@id/bottomMenuBackground"
+        android:text="@string/racion"
+        android:fontFamily="@font/playfair_display"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        />
+
+    <ImageView
+        android:id="@+id/recipeIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/racionIcon"
+        app:layout_constraintTop_toTopOf="@id/bottomMenuBackground"
+        app:layout_constraintBottom_toTopOf="@id/tvRecipe"
+        android:src="@drawable/recipe_icon"
+        app:layout_constraintHeight_percent="0.05"
+        />
+
+    <TextView
+        android:id="@+id/tvRecipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/recipeIcon"
+        app:layout_constraintEnd_toEndOf="@id/recipeIcon"
+        app:layout_constraintTop_toBottomOf="@id/recipeIcon"
+        app:layout_constraintBottom_toBottomOf="@id/bottomMenuBackground"
+        android:text="@string/recipe"
+        android:fontFamily="@font/playfair_display"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

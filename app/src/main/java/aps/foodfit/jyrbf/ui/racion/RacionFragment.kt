@@ -7,25 +7,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import aps.foodfit.jyrbf.R
+import aps.foodfit.jyrbf.databinding.FragmentRacionBinding
+import aps.foodfit.jyrbf.ui.recipe_list.RecipeListFragment
+import aps.foodfit.jyrbf.ui.recipe_list.recipe.RecipeFragment
 
 class RacionFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = RacionFragment()
-    }
-
     private val viewModel: RacionViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
+    private val binding by lazy { FragmentRacionBinding.inflate(layoutInflater) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_racion, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.someBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.foodConteiner, RecipeListFragment())
+                commit()
+            }
+        }
     }
 }

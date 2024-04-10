@@ -17,4 +17,6 @@
     <string name="need_enter_height">Необходимо указать рост</string>
     <string name="need_enter_calories">Необходимо указать дневную норму калорий</string>
     <string name="choose_gender">Выберите пол</string>
+    <string name="racion">Рацион</string>
+    <string name="recipe">Рецепты</string>
 </resources>
