@@ -3,6 +3,9 @@ package aps.foodfit.jyrbf.domain
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import aps.foodfit.jyrbf.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -21,4 +24,12 @@ fun Context.getBitmapByName(fileName: String): Bitmap?{
             return BitmapFactory.decodeStream(it)
         }
     }else return null
+}
+
+fun FragmentManager.launchNewFragment(fragment: Fragment){
+    this.beginTransaction().apply {
+        replace(R.id.foodConteiner, fragment)
+        addToBackStack(null)
+        commit()
+    }
 }

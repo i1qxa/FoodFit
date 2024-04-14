@@ -25,11 +25,6 @@ class RecipeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.someBtn.setOnClickListener {
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.foodConteiner, RacionFragment())
-                commit()
-            }
-        }
+
     }
 }

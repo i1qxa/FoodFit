@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.databinding.FragmentRacionBinding
+import aps.foodfit.jyrbf.domain.launchNewFragment
+import aps.foodfit.jyrbf.ui.new_racion.AddNewRacionFragment
 import aps.foodfit.jyrbf.ui.recipe_list.RecipeListFragment
 import aps.foodfit.jyrbf.ui.recipe_list.recipe.RecipeFragment
 
@@ -25,11 +27,13 @@ class RacionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.someBtn.setOnClickListener {
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.foodConteiner, RecipeListFragment())
-                commit()
-            }
+        setupBtnAddClickListener()
+    }
+
+    private fun setupBtnAddClickListener(){
+        binding.btnAdd.setOnClickListener(){
+            parentFragmentManager.launchNewFragment(AddNewRacionFragment())
         }
     }
+
 }

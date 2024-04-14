@@ -1,6 +1,8 @@
 package aps.foodfit.jyrbf.data.remote
 
+import android.graphics.Bitmap
 import aps.foodfit.jyrbf.data.local.recipe.RecipeDB
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -23,13 +25,13 @@ data class RecipeItemShort(
     val ingredients:List<String>?,
     val dietLabels:List<String>?,
     val mealType: List<String>?,
-    val totalTime:Double
+    val totalTime:Double?
 ){
     fun toRecipeDB(weight:Int, racionName:String):RecipeDB= RecipeDB(
         0,
         label?:"Название",
         imgRegular?:"",
-        "",
+        savedImgName,
         weight,
         calories.toDouble()/100,
         protein.toDouble()/100,
@@ -37,10 +39,13 @@ data class RecipeItemShort(
         carbs.toDouble()/100,
         getMealType(),
         getIngredientsAsString(),
-        totalTime.toInt(),
+        totalTime?.toInt()?:0,
         racionName
-
     )
+
+    @Contextual
+    var imgBitmap:Bitmap? = null
+    var savedImgName = ""
 
     private fun getIngredientsAsString():String{
         return try {

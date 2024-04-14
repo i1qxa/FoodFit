@@ -30,20 +30,22 @@ data class RecipeItem(
     val digest: List<DigestItem>? = null
 ) {
 
-//    fun getRecipeShort(newId:Int) = RecipeItemShort(
-//        newId,
-//        uri ?: "",
-//        label,
-//        images?.regular?.url,
-//        images?.small?.url,
-//        (calories ?: (1.0f)).toInt(),
-//        (totalNutrients?.chocdf?.quantity ?: 1.0F).toInt(),
-//        (totalNutrients?.fat?.quantity ?: 1.0F).toInt(),
-//        (totalNutrients?.procnt?.quantity ?: 1.0F).toInt(),
-//        (totalWeight ?: 1).toInt(),
-//        ingredientLines,
-//        dietLabels,
-//
-//    )
+    fun getRecipeShort(newId:Int) = RecipeItemShort(
+        newId,
+        uri ?: "",
+        label,
+        images?.regular?.url,
+        images?.small?.url,
+        (calories ?: (1.0f)).toInt(),
+        (totalNutrients?.chocdf?.quantity ?: 1.0F).toInt(),
+        (totalNutrients?.fat?.quantity ?: 1.0F).toInt(),
+        (totalNutrients?.procnt?.quantity ?: 1.0F).toInt(),
+        (totalWeight ?: 1).toInt(),
+        ingredientLines,
+        dietLabels,
+        mealType,
+        totalTime
+
+    )
 
 }

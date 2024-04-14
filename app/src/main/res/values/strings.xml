@@ -19,4 +19,17 @@
     <string name="choose_gender">Выберите пол</string>
     <string name="racion">Рацион</string>
     <string name="recipe">Рецепты</string>
+    <string name="kcal">Ккал</string>
+    <string name="protein">Белки</string>
+    <string name="fat">Жиры</string>
+    <string name="carb">Углеводы</string>
+    <string name="enter_recipe_name">Введите название рецепта</string>
+    <string name="add_tp_racion">Добавить в рацион</string>
+    <string name="enter_racion_name">Введите название рациона</string>
+    <string name="save">Сохранить</string>
+    <string name="add">Добавить</string>
+    <string name="recipe_name_is_empty">Поле название рецепта не должно быть пустым</string>
+    <string name="empty_search_list">Список рецептов пуст. Введите название рецепта в строку поиска и нажмите кнопку найти</string>
+    <string name="error_request">По вашему запросу не найдено рецептов</string>
+    <string name="toast_new_recipe">%1$s успешно добавлен к новому рациону</string>
 </resources>

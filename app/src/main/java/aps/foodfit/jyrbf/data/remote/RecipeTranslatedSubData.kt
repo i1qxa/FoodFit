@@ -1,7 +1,5 @@
 package aps.foodfit.jyrbf.data.remote
 
-import FIELDS_SPLITTER
-import VALUE_SPLITTER
 
 data class RecipeTranslatedSubData(
     val id:Int,

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="5dp"
+    android:layout_marginTop="5dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivRecipeLogo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.25"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView
+            android:id="@+id/tvRecipeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivRecipeLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/tvKcal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvKcal"
+            app:layout_constraintBottom_toBottomOf="@id/tvKcal"
+            android:src="@drawable/kcal_background"
+            android:layout_marginEnd="5dp"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/tvProtein"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvProtein"
+            app:layout_constraintBottom_toBottomOf="@id/tvProtein"
+            android:src="@drawable/protein_background"
+            android:layout_marginEnd="5dp"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/tvFat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvFat"
+            app:layout_constraintBottom_toBottomOf="@id/tvFat"
+            android:src="@drawable/fat_background"
+            android:layout_marginEnd="5dp"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/tvCarb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvCarb"
+            app:layout_constraintBottom_toBottomOf="@id/tvCarb"
+            android:src="@drawable/carb_background"
+            android:layout_marginEnd="5dp"
+            />
+
+        <TextView
+            android:id="@+id/tvKcal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kcal"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/ivRecipeLogo"
+            app:layout_constraintTop_toBottomOf="@id/tvRecipeName"
+            android:paddingStart="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:id="@+id/tvProtein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/protein"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/ivRecipeLogo"
+            app:layout_constraintTop_toBottomOf="@id/tvKcal"
+            android:paddingStart="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:id="@+id/tvFat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fat"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/ivRecipeLogo"
+            app:layout_constraintTop_toBottomOf="@id/tvProtein"
+            android:paddingStart="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:id="@+id/tvCarb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/carb"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/ivRecipeLogo"
+            app:layout_constraintTop_toBottomOf="@id/tvFat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingStart="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView
+            android:id="@+id/tvKcalValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvCarb"
+            app:layout_constraintTop_toTopOf="@id/tvKcal"
+            android:textColor="@color/white"
+            android:paddingEnd="20dp"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvProteinValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvCarb"
+            app:layout_constraintTop_toTopOf="@id/tvProtein"
+            android:textColor="@color/white"
+            android:paddingEnd="20dp"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvFatValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvCarb"
+            app:layout_constraintTop_toTopOf="@id/tvFat"
+            android:textColor="@color/white"
+            android:paddingEnd="20dp"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvCarbValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvCarb"
+            app:layout_constraintTop_toTopOf="@id/tvCarb"
+            android:textColor="@color/white"
+            android:paddingEnd="20dp"
+            android:layout_marginStart="10dp"
+            />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
