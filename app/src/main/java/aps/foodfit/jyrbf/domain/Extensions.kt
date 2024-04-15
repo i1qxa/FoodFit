@@ -11,7 +11,7 @@ import kotlinx.coroutines.withContext
 import java.io.File
 
 suspend fun Context.saveBitmap(fileName: String, bitmap: Bitmap) = withContext(Dispatchers.IO) {
-    val file = File(filesDir, fileName)
+    val file = File(filesDir, "${fileName}.webp")
     file.outputStream().use {
         bitmap.compress(Bitmap.CompressFormat.WEBP, 75, it)
     }
@@ -32,4 +32,9 @@ fun FragmentManager.launchNewFragment(fragment: Fragment){
         addToBackStack(null)
         commit()
     }
+}
+
+fun String.firstCharToUpperCase():String{
+    val firstChar = this.trim()[0].uppercaseChar()
+    return "$firstChar${this.removeRange(0..1)}"
 }

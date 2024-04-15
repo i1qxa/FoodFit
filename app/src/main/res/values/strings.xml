@@ -32,4 +32,7 @@
     <string name="empty_search_list">Список рецептов пуст. Введите название рецепта в строку поиска и нажмите кнопку найти</string>
     <string name="error_request">По вашему запросу не найдено рецептов</string>
     <string name="toast_new_recipe">%1$s успешно добавлен к новому рациону</string>
+    <string name="enter_weight_in_grams">Укажите вес в граммах</string>
+    <string name="cancel">Отменить</string>
+    <string name="need_enter_racion_name">Необходимо указать название рецепта</string>
 </resources>

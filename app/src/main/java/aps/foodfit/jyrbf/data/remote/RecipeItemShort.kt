@@ -40,11 +40,13 @@ data class RecipeItemShort(
         getMealType(),
         getIngredientsAsString(),
         totalTime?.toInt()?:0,
-        racionName
+        racionName,
+        false
     )
 
     @Contextual
     var imgBitmap:Bitmap? = null
+
     var savedImgName = ""
 
     private fun getIngredientsAsString():String{

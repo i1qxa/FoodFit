@@ -17,7 +17,7 @@ interface RecipeDao {
             "SUM(weightInGrams) as totalWeight, SUM(kcalPerGram*weightInGrams) as totalKcal," +
             "SUM(proteinPerGram*weightInGrams) as totalProtein," +
             "SUM(fatPerGram*weightInGrams) as totalFat," +
-            "SUM(carbPerGram*weightInGrams) as totalCarb FROM recipedb GROUP BY racionName")
+            "SUM(carbPerGram*weightInGrams) as totalCarb, isPrePopulate FROM recipedb GROUP BY racionName")
     fun getListOfRacion():LiveData<List<Racion>>
 
     @Query("SELECT * FROM RecipeDB WHERE racionName=:racionName")

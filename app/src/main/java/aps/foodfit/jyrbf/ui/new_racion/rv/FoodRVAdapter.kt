@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.data.remote.RecipeItemShort
+import aps.foodfit.jyrbf.domain.firstCharToUpperCase
 import coil.load
 import coil.transform.RoundedCornersTransformation
 
@@ -36,9 +37,4 @@ class FoodRVAdapter : ListAdapter<RecipeItemShort, FoodViewHolder>(FoodDiffCallB
             tvCarbValue.text= item.carbs.toString()
         }
     }
-}
-
-fun String.firstCharToUpperCase():String{
-    val firstChar = this.trim()[0].uppercaseChar()
-    return "$firstChar${this.removeRange(0..1)}"
 }

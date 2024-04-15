@@ -15,15 +15,19 @@ class AddNewRacionViewModel(application: Application) : AndroidViewModel(applica
     private val recipeDao = RecipeDataBase.getInstance(application).recipeDao()
     val listOfRecipeItems = mutableListOf<RecipeItemShort>()
     val recipeListLD = MutableLiveData<List<RecipeItemShort>>()
+    val isRecipeSaved = MutableLiveData<Any>()
     private val context by lazy { application.applicationContext }
-    fun addRecipeItem(recipe: RecipeItemShort) {
-        listOfRecipeItems.add(recipe)
+    fun addRecipeItem(recipe: RecipeItemShort, weightInGrams:Int) {
+        val imgLocal = "${recipe.label?.trim()}.webp"
+        val recipeItem = recipe.copy(weight = weightInGrams, label = recipe.label?.trim(), )
+        listOfRecipeItems.add(recipeItem)
         recipeListLD.value = listOfRecipeItems
     }
 
     fun saveRacion(racionName: String) {
         viewModelScope.launch {
             listOfRecipeItems.forEach {
+                TODO("Не сохраняется имя картинки")
                 val savedImgName = it.label?:"saved_img"
                 if (it.imgBitmap != null) {
                     saveImg(savedImgName, it.imgBitmap!!)
@@ -34,6 +38,7 @@ class AddNewRacionViewModel(application: Application) : AndroidViewModel(applica
                 it.toRecipeDB(100, racionName)
             }
             recipeDao.addListOfRecipeItems(listDB)
+            isRecipeSaved.postValue(Unit)
         }
     }
 

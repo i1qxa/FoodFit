@@ -7,11 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import aps.foodfit.jyrbf.R
+import aps.foodfit.jyrbf.data.remote.RecipeItemShort
 import aps.foodfit.jyrbf.databinding.FragmentRecipeSearchBinding
+import aps.foodfit.jyrbf.databinding.InputWeightDialogBinding
 import aps.foodfit.jyrbf.ui.new_racion.AddNewRacionViewModel
 import aps.foodfit.jyrbf.ui.new_racion.recipe_search.rv.FoodRVAdapter
 
@@ -83,10 +86,7 @@ class RecipeSearchFragment : Fragment() {
 
     private fun setupRVAdapter(){
         rvAdapter.onItemClickListener = { recipeItemShort ->
-            addViewModel.addRecipeItem(recipeItemShort)
-            Toast.makeText(requireContext(),
-                getString(R.string.toast_new_recipe, recipeItemShort.label),
-                Toast.LENGTH_SHORT).show()
+            showInputWeightDialog(recipeItemShort)
         }
     }
 
@@ -105,4 +105,22 @@ class RecipeSearchFragment : Fragment() {
         }
     }
 
+    private fun showInputWeightDialog(foodItem: RecipeItemShort) {
+        val dialogBinding = InputWeightDialogBinding.inflate(layoutInflater)
+        val dialog = AlertDialog.Builder(requireContext()).apply {
+            setView(dialogBinding.root)
+        }.create()
+        dialog.show()
+        dialogBinding.btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialogBinding.btnSubmit.setOnClickListener {
+            val weightStr = dialogBinding.etWeight.text.toString().ifEmpty { "100" }
+            val weight = weightStr.toInt()
+            addViewModel.addRecipeItem(foodItem, weight)
+            Toast.makeText(requireContext(),getString(R.string.toast_new_recipe, foodItem.label),
+                Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
+    }
 }

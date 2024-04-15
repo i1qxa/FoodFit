@@ -11,4 +11,5 @@ data class Racion(
     val totalProtein:Int,
     val totalFat:Int,
     val totalCarb:Int,
+    val isPrePopulate:Boolean,
 )

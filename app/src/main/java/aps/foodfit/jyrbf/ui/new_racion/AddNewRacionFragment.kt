@@ -4,15 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.databinding.FragmentAddNewRacionBinding
 import aps.foodfit.jyrbf.domain.launchNewFragment
 import aps.foodfit.jyrbf.ui.new_racion.recipe_search.RecipeSearchFragment
 import aps.foodfit.jyrbf.ui.new_racion.rv.FoodRVAdapter
+import aps.foodfit.jyrbf.ui.racion.RacionFragment
 
 class AddNewRacionFragment : Fragment() {
 
@@ -35,24 +38,26 @@ class AddNewRacionFragment : Fragment() {
         setupBtnSaveClickListener()
     }
 
-    private fun observeViewModel(){
-        viewModel.recipeListLD.observe(viewLifecycleOwner){
+    private fun observeViewModel() {
+        viewModel.recipeListLD.observe(viewLifecycleOwner) {
             recipeRV.visibility = View.VISIBLE
             rvAdapter.submitList(it)
         }
+        viewModel.isRecipeSaved.observe(viewLifecycleOwner){
+            parentFragmentManager.launchNewFragment(RacionFragment())
+        }
     }
 
-    private fun setupBtnAddClickListener(){
-        TODO("Нужно сделать нормальное сохранение рецепта со всеми проверками")
-        binding.btnAdd.setOnClickListener(){
+    private fun setupBtnAddClickListener() {
+        binding.btnAdd.setOnClickListener() {
             parentFragmentManager.launchNewFragment(RecipeSearchFragment())
         }
     }
 
-    private fun setupRV(){
-        with(recipeRV){
+    private fun setupRV() {
+        with(recipeRV) {
             adapter = rvAdapter
-            layoutManager=LinearLayoutManager(
+            layoutManager = LinearLayoutManager(
                 context,
                 RecyclerView.VERTICAL,
                 false
@@ -60,9 +65,18 @@ class AddNewRacionFragment : Fragment() {
         }
     }
 
-    private fun setupBtnSaveClickListener(){
+    private fun setupBtnSaveClickListener() {
         binding.btnSave.setOnClickListener {
-            viewModel.saveRacion(binding.etRacionName.text.toString())
+            val racionName = binding.etRacionName.text.toString()
+            if (racionName.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.need_enter_racion_name),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                viewModel.saveRacion(binding.etRacionName.text.toString())
+            }
         }
     }
 
