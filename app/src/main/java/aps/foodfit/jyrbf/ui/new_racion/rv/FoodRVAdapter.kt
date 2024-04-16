@@ -25,9 +25,10 @@ class FoodRVAdapter : ListAdapter<RecipeItemShort, FoodViewHolder>(FoodDiffCallB
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         val item = getItem(position)
         with(holder) {
-            ivLogo.load(item.imgSmall) {
-                transformations(RoundedCornersTransformation(20.0f))
-            }
+//            ivLogo.load(item.imgSmall) {
+//                transformations(RoundedCornersTransformation(20.0f))
+//            }
+            ivLogo.setImageBitmap(item.imgBitmap)
             tvName.text = item.label?.firstCharToUpperCase()
         }
         with(holder){

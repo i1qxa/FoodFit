@@ -40,11 +40,17 @@ class AddNewRacionFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.recipeListLD.observe(viewLifecycleOwner) {
-            recipeRV.visibility = View.VISIBLE
-            rvAdapter.submitList(it)
+            if (it.isNotEmpty()){
+                recipeRV.visibility = View.VISIBLE
+                binding.tvEmptyList.visibility = View.GONE
+                rvAdapter.submitList(it)
+            }
+
         }
         viewModel.isRecipeSaved.observe(viewLifecycleOwner){
-            parentFragmentManager.launchNewFragment(RacionFragment())
+            if (it){
+                parentFragmentManager.launchNewFragment(RacionFragment())
+            }
         }
     }
 

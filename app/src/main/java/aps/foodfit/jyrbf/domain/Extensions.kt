@@ -36,5 +36,5 @@ fun FragmentManager.launchNewFragment(fragment: Fragment){
 
 fun String.firstCharToUpperCase():String{
     val firstChar = this.trim()[0].uppercaseChar()
-    return "$firstChar${this.removeRange(0..1)}"
+    return "$firstChar${this.removeRange(0..0)}"
 }

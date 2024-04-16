@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.databinding.FragmentRacionBinding
 import aps.foodfit.jyrbf.domain.launchNewFragment
 import aps.foodfit.jyrbf.ui.new_racion.AddNewRacionFragment
+import aps.foodfit.jyrbf.ui.new_racion.AddNewRacionViewModel
 import aps.foodfit.jyrbf.ui.racion.rv.RacionRVAdapter
 import aps.foodfit.jyrbf.ui.recipe_list.RecipeListFragment
 import aps.foodfit.jyrbf.ui.recipe_list.recipe.RecipeFragment
@@ -19,6 +21,7 @@ import aps.foodfit.jyrbf.ui.recipe_list.recipe.RecipeFragment
 class RacionFragment : Fragment() {
 
     private val viewModel: RacionViewModel by viewModels()
+    private val addNewRacionVM:AddNewRacionViewModel by activityViewModels()
     private val binding by lazy { FragmentRacionBinding.inflate(layoutInflater) }
     private val rvAdapter = RacionRVAdapter()
     private val rv by lazy { binding.rvRacionList }
@@ -45,6 +48,7 @@ class RacionFragment : Fragment() {
 
     private fun setupBtnAddClickListener(){
         binding.btnAdd.setOnClickListener(){
+            addNewRacionVM.resetState()
             parentFragmentManager.launchNewFragment(AddNewRacionFragment())
         }
     }

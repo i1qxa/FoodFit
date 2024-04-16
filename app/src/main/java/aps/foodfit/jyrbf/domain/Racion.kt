@@ -1,5 +1,8 @@
 package aps.foodfit.jyrbf.domain
 
+import android.content.Context
+import android.graphics.Bitmap
+
 data class Racion(
     val name:String,
     val imgRemote:String,
@@ -12,4 +15,15 @@ data class Racion(
     val totalFat:Int,
     val totalCarb:Int,
     val isPrePopulate:Boolean,
-)
+){
+    fun getSavedImg(context: Context): Bitmap? {
+        return when (isPrePopulate) {
+            false -> {
+                TODO("Реализовать получение картинки в случае если рецепт заранее загружен")
+            }
+            true -> {
+                context.getBitmapByName(imgLocal)
+            }
+        }
+    }
+}

@@ -27,7 +27,7 @@ data class RecipeItemShort(
     val mealType: List<String>?,
     val totalTime:Double?
 ){
-    fun toRecipeDB(weight:Int, racionName:String):RecipeDB= RecipeDB(
+    fun toRecipeDB(racionName:String):RecipeDB= RecipeDB(
         0,
         label?:"Название",
         imgRegular?:"",
@@ -41,7 +41,7 @@ data class RecipeItemShort(
         getIngredientsAsString(),
         totalTime?.toInt()?:0,
         racionName,
-        false
+        true
     )
 
     @Contextual

@@ -1,5 +1,6 @@
 package aps.foodfit.jyrbf.ui.racion.rv
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -25,7 +26,7 @@ class RacionRVAdapter : ListAdapter<Racion, RacionViewHolder>(RacionDiffCallBack
         val item = getItem(position)
         with(holder) {
             try {
-                ivLogo.setImageBitmap(holder.itemView.context.getBitmapByName(item.imgLocal))
+                ivLogo.setImageBitmap(item.getSavedImg(holder.itemView.context))
             }catch (_:Exception){
 
             }
