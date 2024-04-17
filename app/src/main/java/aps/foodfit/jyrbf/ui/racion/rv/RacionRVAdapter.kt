@@ -1,16 +1,15 @@
 package aps.foodfit.jyrbf.ui.racion.rv
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.domain.Racion
 import aps.foodfit.jyrbf.domain.firstCharToUpperCase
-import aps.foodfit.jyrbf.domain.getBitmapByName
 
 class RacionRVAdapter : ListAdapter<Racion, RacionViewHolder>(RacionDiffCallBack()) {
 
+    var onRacionClickListener : ((String) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RacionViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return RacionViewHolder(
@@ -39,6 +38,9 @@ class RacionRVAdapter : ListAdapter<Racion, RacionViewHolder>(RacionDiffCallBack
             tvCarbValue.text= item.totalCarb.toString()
             tvTotalTime.text=item.totalTime.toString()
             tvTotalWeight.text=item.totalWeight.toString()
+        }
+        holder.itemView.setOnClickListener {
+            onRacionClickListener?.invoke(item.name)
         }
     }
 }

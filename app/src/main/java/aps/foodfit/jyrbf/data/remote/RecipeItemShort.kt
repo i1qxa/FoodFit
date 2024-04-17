@@ -2,6 +2,11 @@ package aps.foodfit.jyrbf.data.remote
 
 import android.graphics.Bitmap
 import aps.foodfit.jyrbf.data.local.recipe.RecipeDB
+import aps.foodfit.jyrbf.domain.BREAKFAST
+import aps.foodfit.jyrbf.domain.DINNER
+import aps.foodfit.jyrbf.domain.LUNCH
+import aps.foodfit.jyrbf.domain.SNACK
+import aps.foodfit.jyrbf.domain.TEATIME
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
@@ -57,11 +62,21 @@ data class RecipeItemShort(
         }
     }
 
-    private fun getMealType():String{
+    private fun getMealType():Int{
         return if (mealType!=null){
-            mealType[0].ifEmpty { "" }
+            getMealTypeAsInt(mealType[0].ifEmpty { "" })
         }else{
-            ""
+            5
+        }
+    }
+    private fun getMealTypeAsInt(mealTypeAsStr:String):Int{
+        val mealTypeSplitted = mealTypeAsStr.split("/")[0]
+        return when(mealTypeSplitted){
+            BREAKFAST -> 1
+            LUNCH ->2
+            DINNER ->3
+            SNACK ->4
+            else ->5
         }
     }
     fun getDataForTranslate():String{
@@ -69,16 +84,16 @@ data class RecipeItemShort(
         answerSB.append(id)
         answerSB.append(FIELDS_SPLITTER)
         answerSB.append(label)
-        answerSB.append(FIELDS_SPLITTER)
-        mealType?.forEach {
-            answerSB.append(it)
-            answerSB.append(VALUE_SPLITTER)
-        }
-        answerSB.append(FIELDS_SPLITTER)
-        ingredients?.forEach {
-            answerSB.append(it)
-            answerSB.append(VALUE_SPLITTER)
-        }
+//        answerSB.append(FIELDS_SPLITTER)
+//        mealType?.forEach {
+//            answerSB.append(it)
+//            answerSB.append(VALUE_SPLITTER)
+//        }
+//        answerSB.append(FIELDS_SPLITTER)
+//        ingredients?.forEach {
+//            answerSB.append(it)
+//            answerSB.append(VALUE_SPLITTER)
+//        }
         return answerSB.toString()
     }
 

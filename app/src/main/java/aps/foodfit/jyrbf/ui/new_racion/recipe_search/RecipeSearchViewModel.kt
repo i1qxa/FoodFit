@@ -71,8 +71,8 @@ class RecipeSearchViewModel : ViewModel() {
                                                 recipesTranslated.add(
                                                     recipeEnglish.copy(
                                                         label = tmpTranslatedItem.name,
-                                                        mealType = tmpTranslatedItem.diets,
-                                                        ingredients = tmpTranslatedItem.ingredients
+//                                                        mealType = tmpTranslatedItem.diets,
+//                                                        ingredients = tmpTranslatedItem.ingredients
                                                     )
                                                 )
                                             }

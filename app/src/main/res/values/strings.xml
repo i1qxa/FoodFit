@@ -36,4 +36,10 @@
     <string name="cancel">Отменить</string>
     <string name="need_enter_racion_name">Необходимо указать название рецепта</string>
     <string name="empty_recipe_list">Список рецептов пуст. Чтобы добавить новые рецепты, нажмите кноку добавить в нижнем правом углу экрана</string>
+    <string name="breakfast">Завтрак</string>
+    <string name="lunch">Ланч</string>
+    <string name="dinner">Обед</string>
+    <string name="teatime">Чаепитие</string>
+    <string name="snack">Снеки</string>
+
 </resources>

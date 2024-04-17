@@ -10,6 +10,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 
+const val BREAKFAST = "breakfast"
+const val DINNER = "dinner"
+const val LUNCH = "lunch"
+const val SNACK = "snack"
+const val TEATIME = "teatime"
 suspend fun Context.saveBitmap(fileName: String, bitmap: Bitmap) = withContext(Dispatchers.IO) {
     val file = File(filesDir, "${fileName}.webp")
     file.outputStream().use {
@@ -35,6 +40,7 @@ fun FragmentManager.launchNewFragment(fragment: Fragment){
 }
 
 fun String.firstCharToUpperCase():String{
-    val firstChar = this.trim()[0].uppercaseChar()
-    return "$firstChar${this.removeRange(0..0)}"
+    val strTrim = this.trim()
+    val firstChar = strTrim[0].uppercaseChar()
+    return "$firstChar${strTrim.removeRange(0..0)}"
 }
