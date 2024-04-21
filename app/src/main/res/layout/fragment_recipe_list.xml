@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.recipe_list.RecipeListFragment">
 
+
     <EditText
         android:id="@+id/etRecipeSearch"
         android:layout_width="0dp"
@@ -13,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnSearch"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:hint="@string/enter_recipe_name"
         />

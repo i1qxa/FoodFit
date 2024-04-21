@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import aps.foodfit.jyrbf.domain.getBitmapByName
+import aps.foodfit.jyrbf.domain.getBitmapByNameFromAssets
 
 @Entity
 data class RecipeDB(
@@ -48,10 +49,10 @@ data class RecipeDB(
     fun getSavedImg(context: Context): Bitmap? {
         return when (isPrePopulate) {
             false -> {
-                TODO("Реализовать получение картинки в случае если рецепт заранее загружен")
+                context.getBitmapByName(imgLocal)
             }
             true -> {
-                context.getBitmapByName(imgLocal)
+                context.getBitmapByNameFromAssets(imgLocal)
             }
         }
     }

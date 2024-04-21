@@ -30,7 +30,7 @@ data class RecipeItem(
     val digest: List<DigestItem>? = null
 ) {
 
-    fun getRecipeShort(newId:Int) = RecipeItemShort(
+    fun getRecipeShort(newId: Int) = RecipeItemShort(
         newId,
         uri ?: "",
         label,
@@ -45,7 +45,18 @@ data class RecipeItem(
         dietLabels,
         mealType,
         totalTime
-
     )
+
+    val proteinPercent:Int
+        get() = (((totalNutrients?.procnt?.quantity ?: 1.0F).toDouble()/totalNuntrientsMass)*100).toInt()
+
+    val fatPercent:Int
+        get() = (((totalNutrients?.fat?.quantity ?: 1.0F).toDouble()/totalNuntrientsMass)*100).toInt()
+
+    val carbPercent:Int
+        get() = (((totalNutrients?.chocdf?.quantity ?: 1.0F).toDouble()/totalNuntrientsMass)*100).toInt()
+    private val totalNuntrientsMass:Int
+        get() = (totalNutrients?.procnt?.quantity ?: 1.0F).toInt() + (totalNutrients?.fat?.quantity ?: 1.0F).toInt() + (totalNutrients?.chocdf?.quantity ?: 1.0F).toInt()
+
 
 }

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import aps.foodfit.jyrbf.R
@@ -36,6 +35,7 @@ class AddNewRacionFragment : Fragment() {
         setupRV()
         observeViewModel()
         setupBtnSaveClickListener()
+        setupBtnBackClickListener()
     }
 
     private fun observeViewModel() {
@@ -57,6 +57,12 @@ class AddNewRacionFragment : Fragment() {
     private fun setupBtnAddClickListener() {
         binding.btnAdd.setOnClickListener() {
             parentFragmentManager.launchNewFragment(RecipeSearchFragment())
+        }
+    }
+
+    private fun setupBtnBackClickListener(){
+        binding.btnBack.setOnClickListener {
+            parentFragmentManager.popBackStack()
         }
     }
 

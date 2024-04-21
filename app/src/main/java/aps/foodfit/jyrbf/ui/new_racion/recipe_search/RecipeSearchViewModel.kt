@@ -8,7 +8,7 @@ import aps.foodfit.jyrbf.data.remote.APP_KEY
 import aps.foodfit.jyrbf.data.remote.ITEM_SPLITTER
 import aps.foodfit.jyrbf.data.remote.RecipeItemShort
 import aps.foodfit.jyrbf.data.remote.RecipeTranslatedSubData
-import aps.foodfit.jyrbf.data.remote.RetrofitService
+import aps.foodfit.jyrbf.data.remote.RecipeService
 import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
@@ -20,7 +20,7 @@ const val STATE_ERROR = 2
 const val STATE_SUCCESS = 3
 class RecipeSearchViewModel : ViewModel() {
 
-    private val retrofit = RetrofitService.getInstance()
+    private val retrofit = RecipeService.getInstance()
     val recipeList = MutableLiveData<List<RecipeItemShort?>?>()
     val state = MutableLiveData<Int>(0)
 
@@ -98,7 +98,7 @@ class RecipeSearchViewModel : ViewModel() {
             TranslatorOptions.Builder().setSourceLanguage(TranslateLanguage.RUSSIAN)
                 .setTargetLanguage(TranslateLanguage.ENGLISH).build()
         val russianEnglishTranslator = Translation.getClient(options)
-        var conditions = DownloadConditions.Builder().build()
+        val conditions = DownloadConditions.Builder().build()
         russianEnglishTranslator.downloadModelIfNeeded(conditions).addOnSuccessListener {
             val translator = Translation.getClient(options)
             translator.translate(queryRussian)

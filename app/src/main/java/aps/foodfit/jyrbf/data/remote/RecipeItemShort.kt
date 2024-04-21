@@ -45,7 +45,7 @@ data class RecipeItemShort(
         getIngredientsAsString(),
         totalTime?.toInt()?:0,
         racionName,
-        true,
+        false,
         uri
     )
 
@@ -84,16 +84,6 @@ data class RecipeItemShort(
         answerSB.append(id)
         answerSB.append(FIELDS_SPLITTER)
         answerSB.append(label)
-//        answerSB.append(FIELDS_SPLITTER)
-//        mealType?.forEach {
-//            answerSB.append(it)
-//            answerSB.append(VALUE_SPLITTER)
-//        }
-//        answerSB.append(FIELDS_SPLITTER)
-//        ingredients?.forEach {
-//            answerSB.append(it)
-//            answerSB.append(VALUE_SPLITTER)
-//        }
         return answerSB.toString()
     }
 

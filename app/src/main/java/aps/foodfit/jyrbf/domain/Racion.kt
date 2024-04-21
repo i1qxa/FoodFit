@@ -19,10 +19,10 @@ data class Racion(
     fun getSavedImg(context: Context): Bitmap? {
         return when (isPrePopulate) {
             false -> {
-                TODO("Реализовать получение картинки в случае если рецепт заранее загружен")
+                context.getBitmapByName(imgLocal)
             }
             true -> {
-                context.getBitmapByName(imgLocal)
+                context.getBitmapByNameFromAssets(imgLocal)
             }
         }
     }

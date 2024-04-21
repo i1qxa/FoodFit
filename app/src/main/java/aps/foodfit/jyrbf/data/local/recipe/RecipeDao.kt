@@ -23,6 +23,13 @@ interface RecipeDao {
     @Query("SELECT * FROM RecipeDB WHERE racionName=:racionName")
     fun getRacion(racionName:String):LiveData<List<RecipeDB>>
 
+    @Query("SELECT * FROM RecipeDB WHERE name LIKE :recipeName")
+    fun getRecipeListByName(recipeName:String):LiveData<List<RecipeDB>>
+
+    @Query("SELECT * FROM RecipeDB")
+    fun getAllRecipes():LiveData<List<RecipeDB>>
+
+
     @Query("SELECT * FROM RecipeDB WHERE id=:recipeId")
     fun getRecipeItem(recipeId:Int):LiveData<RecipeDB>
 

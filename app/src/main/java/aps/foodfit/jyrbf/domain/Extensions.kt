@@ -31,6 +31,13 @@ fun Context.getBitmapByName(fileName: String): Bitmap?{
     }else return null
 }
 
+fun Context.getBitmapByNameFromAssets(fileName: String): Bitmap?{
+    if(fileName.isNotEmpty()){
+        val img = this@getBitmapByNameFromAssets.assets.open(fileName)
+        return BitmapFactory.decodeStream(img)
+    }else return null
+}
+
 fun FragmentManager.launchNewFragment(fragment: Fragment){
     this.beginTransaction().apply {
         replace(R.id.foodConteiner, fragment)

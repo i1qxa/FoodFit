@@ -35,7 +35,7 @@ abstract class RecipeDataBase:RoomDatabase() {
                     RecipeDataBase::class.java,
                     DB_NAME
                 )
-//                    .createFromAsset("fitness_up.db")
+                    .createFromAsset("food_fit_db.db")
                     .build()
                 INSTANCE = db
                 return db

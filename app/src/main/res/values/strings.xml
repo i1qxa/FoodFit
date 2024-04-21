@@ -45,5 +45,6 @@
     <string name="dinner">Обед</string>
     <string name="teatime">Чаепитие</string>
     <string name="snack">Снеки</string>
+    <string name="error_loading_data">Ошибка загрузки данных</string>
 
 </resources>

@@ -5,10 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import aps.foodfit.jyrbf.data.remote.APP_ID
 import aps.foodfit.jyrbf.data.remote.APP_KEY
-import aps.foodfit.jyrbf.data.remote.ITEM_SPLITTER
-import aps.foodfit.jyrbf.data.remote.RecipeItemShort
-import aps.foodfit.jyrbf.data.remote.RecipeTranslatedSubData
-import aps.foodfit.jyrbf.data.remote.RetrofitService
+import aps.foodfit.jyrbf.data.remote.FIELDS_SPLITTER
+import aps.foodfit.jyrbf.data.remote.IngredientItem
+import aps.foodfit.jyrbf.data.remote.RecipeByUriService
+import aps.foodfit.jyrbf.data.remote.RecipeItem
+import aps.foodfit.jyrbf.data.remote.VALUE_SPLITTER
+import aps.foodfit.jyrbf.ui.new_racion.recipe_search.STATE_ERROR
+import aps.foodfit.jyrbf.ui.new_racion.recipe_search.STATE_LOADING
+import aps.foodfit.jyrbf.ui.new_racion.recipe_search.STATE_SUCCESS
 import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
@@ -17,70 +21,77 @@ import kotlinx.coroutines.launch
 
 class RecipeViewModel : ViewModel() {
 
-    private val retrofit = RetrofitService.getInstance()
-    val recipeItem = MutableLiveData<RecipeItemShort?>()
+    private val retrofit = RecipeByUriService.getInstanceByUri()
+    val recipeItemLD = MutableLiveData<RecipeItem?>()
+    var recipeItem: RecipeItem? = null
+    val state = MutableLiveData<Int>(STATE_LOADING)
 
     fun getRecipeList(uri: String) {
 
         viewModelScope.launch {
-            recipeItem.postValue(null)
-            val recipes = mutableListOf<RecipeItemShort?>()
-            val recipesTranslated = mutableListOf<RecipeItemShort>()
+            recipeItemLD.postValue(null)
             val response = retrofit.getRecipeByUri(
                 "public", uri, APP_ID, APP_KEY
             )
             if (response.isSuccessful) {
                 if (response.body()?.count == 0) {
-//                    state.postValue(STATE_ERROR)
+                    state.postValue(STATE_ERROR)
                 } else {
-//                    state.postValue(STATE_SUCCESS)
-                    var startId = 0
                     response.body()?.hits?.map {
-                        recipes.add(it.recipe?.getRecipeShort(startId))
-                        startId++
+                        recipeItem = it.recipe
                     }
-                    val encoded = StringBuilder()
-                    recipes.forEach {
-                        if (it != null) {
-                            encoded.append(it.getDataForTranslate())
-                            encoded.append(ITEM_SPLITTER)
+                    val recipeItemGetted = recipeItem
+                    if (recipeItemGetted != null) {
+                        val encoded = StringBuilder()
+                        encoded.append(recipeItemGetted.label)
+                        encoded.append(FIELDS_SPLITTER)
+                        recipeItemGetted.ingredients?.forEach {
+                            encoded.append(it.text)
+                            encoded.append(VALUE_SPLITTER)
                         }
-                    }
-                    val options =
-                        TranslatorOptions.Builder().setSourceLanguage(TranslateLanguage.ENGLISH)
-                            .setTargetLanguage(TranslateLanguage.RUSSIAN).build()
-                    val englishGermanTranslator = Translation.getClient(options)
-                    val conditions = DownloadConditions.Builder().build()
-                    englishGermanTranslator.downloadModelIfNeeded(conditions).addOnSuccessListener {
-                        val translator = Translation.getClient(options)
-                        translator.translate(encoded.toString())
-                            .addOnSuccessListener { translatedCollection ->
-                                translatedCollection.split(ITEM_SPLITTER).forEach {
-                                    if (it.isNotEmpty()) {
-                                        val tmpTranslatedItem =
-                                            RecipeTranslatedSubData.decodeFromString(it)
-                                        val recipeEnglishList =
-                                            recipes.filter { it?.id == tmpTranslatedItem?.id }
-                                        if (recipeEnglishList.isNotEmpty()) {
-                                            val recipeEnglish = recipeEnglishList[0]
-                                            if (recipeEnglish != null && tmpTranslatedItem != null) {
-                                                recipesTranslated.add(
-                                                    recipeEnglish.copy(
-                                                        label = tmpTranslatedItem.name,
-//                                                        mealType = tmpTranslatedItem.diets,
-//                                                        ingredients = tmpTranslatedItem.ingredients
-                                                    )
-                                                )
+                        val options =
+                            TranslatorOptions.Builder().setSourceLanguage(TranslateLanguage.ENGLISH)
+                                .setTargetLanguage(TranslateLanguage.RUSSIAN).build()
+                        val englishGermanTranslator = Translation.getClient(options)
+                        val conditions = DownloadConditions.Builder().build()
+                        englishGermanTranslator.downloadModelIfNeeded(conditions)
+                            .addOnSuccessListener {
+                                val translator = Translation.getClient(options)
+                                translator.translate(encoded.toString())
+                                    .addOnSuccessListener { translatedCollection ->
+                                        val resTranslate =
+                                            translatedCollection.split(FIELDS_SPLITTER)
+                                        if (resTranslate.isNotEmpty()) recipeItem =
+                                            recipeItemGetted.copy(label = resTranslate[0].trim())
+                                        if (resTranslate.size > 1) {
+                                            val listTranslatedIngredients = resTranslate[1].split(
+                                                VALUE_SPLITTER
+                                            ).map { it.trim() }
+                                            val tmpIngredients = mutableListOf<IngredientItem>()
+                                            val ingredientsEnglish = recipeItemGetted.ingredients
+                                            var counter = 0
+                                            while (counter < ingredientsEnglish?.size ?: 0) {
+                                                ingredientsEnglish?.elementAt(counter)
+                                                    ?.let { ingredientItem ->
+                                                        tmpIngredients.add(
+                                                            ingredientItem.copy(
+                                                                text = listTranslatedIngredients.elementAt(
+                                                                    counter
+                                                                )
+                                                            )
+                                                        )
+                                                    }
+                                                counter++
                                             }
+                                            recipeItem =
+                                                recipeItem?.copy(ingredients = tmpIngredients)
                                         }
-
+                                        recipeItemLD.postValue(recipeItem)
+                                        state.postValue(STATE_SUCCESS)
                                     }
-
-                                }
-                                recipeItem.postValue(recipesTranslated[0])
+                            }.addOnFailureListener { exception ->
+                                state.postValue(STATE_ERROR)
                             }
-                    }.addOnFailureListener { exception ->
-//                        state.postValue(STATE_ERROR)
                     }
                 }
             }
