@@ -20,6 +20,10 @@
     <string name="racion">Рацион</string>
     <string name="recipe">Рецепты</string>
     <string name="kcal">Ккал</string>
+    <string name="kcal_and_value">Энергетическая ценность: %1$d ккал</string>
+    <string name="protein_and_value">Белки: %1$d</string>
+    <string name="fat_and_value">Жиры: %1$d</string>
+    <string name="carb_and_value">Углеводы: %1$d</string>
     <string name="protein">Белки</string>
     <string name="fat">Жиры</string>
     <string name="carb">Углеводы</string>

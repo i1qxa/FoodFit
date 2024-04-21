@@ -44,3 +44,4 @@ fun String.firstCharToUpperCase():String{
     val firstChar = strTrim[0].uppercaseChar()
     return "$firstChar${strTrim.removeRange(0..0)}"
 }
+

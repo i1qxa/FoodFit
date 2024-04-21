@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.ListAdapter
 import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.data.remote.RecipeItemShort
 import aps.foodfit.jyrbf.domain.firstCharToUpperCase
-import coil.load
-import coil.transform.RoundedCornersTransformation
 
 class FoodRVAdapter : ListAdapter<RecipeItemShort, FoodViewHolder>(FoodDiffCallBack()) {
 
@@ -24,18 +22,19 @@ class FoodRVAdapter : ListAdapter<RecipeItemShort, FoodViewHolder>(FoodDiffCallB
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         val item = getItem(position)
+        val context = holder.itemView.context
         with(holder) {
-//            ivLogo.load(item.imgSmall) {
-//                transformations(RoundedCornersTransformation(20.0f))
-//            }
             ivLogo.setImageBitmap(item.imgBitmap)
             tvName.text = item.label?.firstCharToUpperCase()
         }
         with(holder){
-            tvKcalValue.text = item.calories.toString()
-            tvProteinValue.text = item.protein.toString()
-            tvFatValue.text = item.fat.toString()
-            tvCarbValue.text= item.carbs.toString()
+            tvKcal.text = context.getString(R.string.kcal_and_value, item.calories)
+            tvProtein.text = context.getString(R.string.protein_and_value, item.protein)
+            tvFat.text = context.getString(R.string.fat_and_value, item.fat)
+            tvCarb.text = context.getString(R.string.carb_and_value, item.carbs)
+            proteinProgress.setProgress(item.proteinPercent, true)
+            fatProgress.setProgress(item.fatPercent, true)
+            carbProgress.setProgress(item.carbPercent, true)
         }
     }
 }

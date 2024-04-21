@@ -9,7 +9,7 @@ import aps.foodfit.jyrbf.domain.firstCharToUpperCase
 
 class RacionRVAdapter : ListAdapter<Racion, RacionViewHolder>(RacionDiffCallBack()) {
 
-    var onRacionClickListener : ((String) -> Unit)? = null
+    var onRacionClickListener: ((String) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RacionViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return RacionViewHolder(
@@ -26,18 +26,17 @@ class RacionRVAdapter : ListAdapter<Racion, RacionViewHolder>(RacionDiffCallBack
         with(holder) {
             try {
                 ivLogo.setImageBitmap(item.getSavedImg(holder.itemView.context))
-            }catch (_:Exception){
-
+            } catch (_: Exception) {
             }
             tvName.text = item.name.firstCharToUpperCase()
         }
-        with(holder){
+        with(holder) {
             tvKcalValue.text = item.totalKcal.toString()
             tvProteinValue.text = item.totalProtein.toString()
             tvFatValue.text = item.totalFat.toString()
-            tvCarbValue.text= item.totalCarb.toString()
-            tvTotalTime.text=item.totalTime.toString()
-            tvTotalWeight.text=item.totalWeight.toString()
+            tvCarbValue.text = item.totalCarb.toString()
+            tvTotalTime.text = item.totalTime.toString()
+            tvTotalWeight.text = item.totalWeight.toString()
         }
         holder.itemView.setOnClickListener {
             onRacionClickListener?.invoke(item.name)

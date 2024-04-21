@@ -12,7 +12,9 @@ import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.databinding.FragmentRacionItemBinding
 import aps.foodfit.jyrbf.ui.racion.RACION_NAME
 import aps.foodfit.jyrbf.ui.racion.racion_item.rv.RacionItemRVAdapter
+import aps.foodfit.jyrbf.ui.recipe_list.recipe.RecipeFragment
 
+const val RECIPE_URI = "recipe_uri"
 class RacionItemFragment : Fragment() {
 
     private val viewModel: RacionItemViewModel by viewModels()
@@ -54,7 +56,23 @@ class RacionItemFragment : Fragment() {
         }
     }
 
+    private fun setupAdapter(){
+        rvAdapter.onItemClickListener ={ uri ->
+            val recipeArgs = Bundle().apply {
+                putString(RECIPE_URI, uri)
+            }
+            val recipeFragment = RecipeFragment()
+            recipeFragment.arguments = recipeArgs
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.foodConteiner, recipeFragment)
+                addToBackStack(null)
+                commit()
+            }
+        }
+    }
+
     private fun setupRV(){
+        setupAdapter()
         rv.apply {
             adapter = rvAdapter
             layoutManager = LinearLayoutManager(

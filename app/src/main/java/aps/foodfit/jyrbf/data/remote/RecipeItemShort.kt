@@ -6,7 +6,6 @@ import aps.foodfit.jyrbf.domain.BREAKFAST
 import aps.foodfit.jyrbf.domain.DINNER
 import aps.foodfit.jyrbf.domain.LUNCH
 import aps.foodfit.jyrbf.domain.SNACK
-import aps.foodfit.jyrbf.domain.TEATIME
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
@@ -46,7 +45,8 @@ data class RecipeItemShort(
         getIngredientsAsString(),
         totalTime?.toInt()?:0,
         racionName,
-        true
+        true,
+        uri
     )
 
     @Contextual
@@ -96,5 +96,17 @@ data class RecipeItemShort(
 //        }
         return answerSB.toString()
     }
+
+
+    val proteinPercent:Int
+        get() = ((protein.toDouble()/totalNuntrientsMass)*100).toInt()
+
+    val fatPercent:Int
+        get() = ((fat.toDouble()/totalNuntrientsMass)*100).toInt()
+
+    val carbPercent:Int
+        get() = ((carbs.toDouble()/totalNuntrientsMass)*100).toInt()
+    private val totalNuntrientsMass:Int
+        get() = (protein + fat + carbs)
 
 }

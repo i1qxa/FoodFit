@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import aps.foodfit.jyrbf.domain.getBitmapByName
-import kotlinx.serialization.Contextual
 
 @Entity
 data class RecipeDB(
@@ -23,7 +22,8 @@ data class RecipeDB(
     val ingredients: String,
     val totalTimeInMinutes: Int,
     val racionName: String,
-    val isPrePopulate: Boolean
+    val isPrePopulate: Boolean,
+    val uri:String,
 ) {
     val kcalTotal: Double
         get() = kcalPerGram * weightInGrams
@@ -33,6 +33,17 @@ data class RecipeDB(
         get() = fatPerGram * weightInGrams
     val carbTotal: Double
         get() = carbPerGram * weightInGrams
+
+    val proteinPercent:Int
+        get() = ((proteinTotal/totalNuntrientsMass)*100).toInt()
+
+    val fatPercent:Int
+        get() = ((fatTotal/totalNuntrientsMass)*100).toInt()
+
+    val carbPercent:Int
+        get() = ((carbTotal/totalNuntrientsMass)*100).toInt()
+    private val totalNuntrientsMass:Int
+        get() = (proteinTotal + fatTotal + carbTotal).toInt()
 
     fun getSavedImg(context: Context): Bitmap? {
         return when (isPrePopulate) {

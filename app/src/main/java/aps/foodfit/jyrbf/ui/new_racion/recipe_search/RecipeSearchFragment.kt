@@ -40,6 +40,13 @@ class RecipeSearchFragment : Fragment() {
         setupBtnSearchClickListener()
         setupRV()
         observeViewModel()
+        setupBtnBack()
+    }
+
+    private fun setupBtnBack(){
+        binding.btnBack.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
     }
 
     private fun observeViewModel() {

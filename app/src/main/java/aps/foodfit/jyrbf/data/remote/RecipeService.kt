@@ -25,6 +25,14 @@ interface RetrofitService {
         @Query("app_key") appKey:String)
     : Response<RecipeResponseBody>
 
+    @GET("?")
+    suspend fun getRecipeByUri(
+        @Query("type") type:String,
+        @Query("uri") uri:String,
+        @Query("app_id") appId:String,
+        @Query("app_key") appKey:String)
+            : Response<RecipeResponseBody>
+
     companion object {
 
         private fun createOkHttpClient(): OkHttpClient {
