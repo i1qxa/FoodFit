@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.prson_info.PersonInfoFragment">
+
+    <ImageView
+        android:id="@+id/backgroundBottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/main_background_bottom"
+        android:scaleType="centerCrop"
+        />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardWeight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cardHeight"
+        android:layout_marginHorizontal="30dp"
+        android:elevation="6dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"
+                />
+
+            <TextView
+                android:id="@+id/tvWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/glWeight"
+                android:layout_marginStart="40dp"
+                android:text="@string/weight"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tvWeightValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditWeight"
+                app:layout_constraintTop_toBottomOf="@id/glWeight"
+                android:layout_marginStart="20dp"
+                android:text="123"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etWeightValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditWeight"
+                app:layout_constraintTop_toBottomOf="@id/glWeight"
+                android:layout_marginStart="20dp"
+                android:text="123"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                android:visibility="gone"
+                android:inputType="number"
+                />
+
+            <ImageView
+                android:id="@+id/btnEditWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/glWeight"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/edit"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardHeight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardWeight"
+        app:layout_constraintBottom_toTopOf="@id/cardEnergy"
+        android:layout_marginHorizontal="30dp"
+        android:elevation="6dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"
+                />
+
+            <TextView
+                android:id="@+id/tvHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/glHeight"
+                android:layout_marginStart="40dp"
+                android:text="@string/height"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tvHeightValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditHeight"
+                app:layout_constraintTop_toBottomOf="@id/glHeight"
+                android:layout_marginStart="20dp"
+                android:text="123"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etHeightValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditHeight"
+                app:layout_constraintTop_toBottomOf="@id/glHeight"
+                android:layout_marginStart="20dp"
+                android:text="123"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                android:visibility="gone"
+                android:inputType="number"
+                />
+
+            <ImageView
+                android:id="@+id/btnEditHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/glHeight"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/edit"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardEnergy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardHeight"
+        app:layout_constraintBottom_toTopOf="@id/backgroundBottom"
+        android:layout_marginHorizontal="30dp"
+        android:elevation="6dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glEnergy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"
+                />
+
+            <TextView
+                android:id="@+id/tvEnergy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/glEnergy"
+                android:layout_marginStart="40dp"
+                android:text="Суточная калорийность"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tvEnergyValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditEnergy"
+                app:layout_constraintTop_toBottomOf="@id/glEnergy"
+                android:layout_marginStart="20dp"
+                android:text="123"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etEnergyValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditEnergy"
+                app:layout_constraintTop_toBottomOf="@id/glEnergy"
+                android:layout_marginStart="20dp"
+                android:text="123"
+                android:fontFamily="@font/playfair_display"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                android:visibility="gone"
+                android:inputType="number"
+                />
+
+            <ImageView
+                android:id="@+id/btnEditEnergy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/glEnergy"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/edit"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,5 +46,11 @@
     <string name="teatime">Чаепитие</string>
     <string name="snack">Снеки</string>
     <string name="error_loading_data">Ошибка загрузки данных</string>
+    <string name="info">Инфо</string>
+    <string name="weight">Вес</string>
+    <string name="height">Рост</string>
+    <string name="weight_kg">%1$s кг</string>
+    <string name="height_sm">%1$s см</string>
+    <string name="energy_kcal">%1$s ккал</string>
 
 </resources>
