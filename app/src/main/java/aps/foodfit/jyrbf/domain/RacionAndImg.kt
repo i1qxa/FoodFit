@@ -1,12 +1,10 @@
 package aps.foodfit.jyrbf.domain
 
 import android.content.Context
-import android.content.res.AssetManager
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import androidx.core.net.toUri
 
-data class Racion(
+data class RacionAndImg(
     val name:String,
     val imgRemote:String,
     val imgLocal:String,
@@ -18,6 +16,7 @@ data class Racion(
     val totalFat:Int,
     val totalCarb:Int,
     val isPrePopulate:Boolean,
+    val img:Bitmap?
 ){
     fun getSavedImg(context: Context): Bitmap? {
         return when (isPrePopulate) {

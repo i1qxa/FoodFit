@@ -46,6 +46,9 @@ class RacionFragment : Fragment() {
         viewModel.listOfRacion.observe(viewLifecycleOwner){
             rvAdapter.submitList(it)
         }
+//        viewModel.listOfRacionAndImg.observe(viewLifecycleOwner){
+//            rvAdapter.submitList(it)
+//        }
     }
 
     private fun setupBtnAddClickListener(){

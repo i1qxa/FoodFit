@@ -14,7 +14,6 @@ const val BREAKFAST = "breakfast"
 const val DINNER = "dinner"
 const val LUNCH = "lunch"
 const val SNACK = "snack"
-const val TEATIME = "teatime"
 suspend fun Context.saveBitmap(fileName: String, bitmap: Bitmap) = withContext(Dispatchers.IO) {
     val file = File(filesDir, "${fileName}.webp")
     file.outputStream().use {
@@ -33,8 +32,13 @@ fun Context.getBitmapByName(fileName: String): Bitmap?{
 
 fun Context.getBitmapByNameFromAssets(fileName: String): Bitmap?{
     if(fileName.isNotEmpty()){
-        val img = this@getBitmapByNameFromAssets.assets.open(fileName)
-        return BitmapFactory.decodeStream(img)
+        try {
+            val img = this@getBitmapByNameFromAssets.assets.open(fileName)
+            return BitmapFactory.decodeStream(img)
+        }catch (e:Exception){
+            return null
+        }
+
     }else return null
 }
 

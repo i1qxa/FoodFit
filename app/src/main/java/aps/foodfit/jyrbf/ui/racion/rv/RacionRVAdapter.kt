@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.domain.Racion
 import aps.foodfit.jyrbf.domain.firstCharToUpperCase
+import kotlinx.coroutines.Dispatchers
 
 class RacionRVAdapter : ListAdapter<Racion, RacionViewHolder>(RacionDiffCallBack()) {
 
@@ -23,11 +24,11 @@ class RacionRVAdapter : ListAdapter<Racion, RacionViewHolder>(RacionDiffCallBack
 
     override fun onBindViewHolder(holder: RacionViewHolder, position: Int) {
         val item = getItem(position)
+        val context = holder.itemView.context
         with(holder) {
             try {
-                ivLogo.setImageBitmap(item.getSavedImg(holder.itemView.context))
-            } catch (_: Exception) {
-            }
+                ivLogo.setImageBitmap(item.getSavedImg(context))
+            }catch (_:Exception){}
             tvName.text = item.name.firstCharToUpperCase()
         }
         with(holder) {

@@ -3,6 +3,7 @@ package aps.foodfit.jyrbf.ui.racion.rv
 import androidx.recyclerview.widget.DiffUtil
 import aps.foodfit.jyrbf.data.remote.RecipeItemShort
 import aps.foodfit.jyrbf.domain.Racion
+import aps.foodfit.jyrbf.domain.RacionAndImg
 
 class RacionDiffCallBack:DiffUtil.ItemCallback<Racion>() {
 
