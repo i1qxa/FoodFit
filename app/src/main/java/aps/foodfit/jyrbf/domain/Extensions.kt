@@ -31,15 +31,15 @@ fun Context.getBitmapByName(fileName: String): Bitmap?{
 }
 
 fun Context.getBitmapByNameFromAssets(fileName: String): Bitmap?{
-    if(fileName.isNotEmpty()){
+    return if(fileName.isNotEmpty()){
         try {
             val img = this@getBitmapByNameFromAssets.assets.open(fileName)
-            return BitmapFactory.decodeStream(img)
+            BitmapFactory.decodeStream(img)
         }catch (e:Exception){
-            return null
+            null
         }
 
-    }else return null
+    }else null
 }
 
 fun FragmentManager.launchNewFragment(fragment: Fragment){

@@ -16,6 +16,7 @@
         app:layout_constraintHeight_percent="0.3"
         android:src="@drawable/main_background_top"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/background"
         />
 
     <ImageView
@@ -28,6 +29,7 @@
         app:layout_constraintHeight_percent="0.1"
         android:src="@drawable/main_background_bottom"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/background"
         />
 
     <TextView
@@ -55,6 +57,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@mipmap/ic_launcher"
+        android:contentDescription="@string/app_logo"
         />
 
     <TextView

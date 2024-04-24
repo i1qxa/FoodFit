@@ -27,6 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent="0.1"
+        android:contentDescription="@string/background"
         />
 
     <ImageView
@@ -40,6 +41,7 @@
         app:layout_constraintBottom_toTopOf="@id/tvRacion"
         android:src="@drawable/racion_icon"
         app:layout_constraintHeight_percent="0.05"
+        android:contentDescription="@string/racion"
         />
 
     <TextView
@@ -67,6 +69,7 @@
         app:layout_constraintBottom_toTopOf="@id/tvRecipe"
         android:src="@drawable/recipe_icon"
         app:layout_constraintHeight_percent="0.05"
+        android:contentDescription="@string/recipe"
         />
 
     <TextView
@@ -95,6 +98,7 @@
         app:layout_constraintBottom_toTopOf="@id/tvRecipe"
         android:src="@drawable/person_info"
         app:layout_constraintHeight_percent="0.05"
+        android:contentDescription="@string/info"
         />
 
     <TextView

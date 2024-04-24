@@ -23,7 +23,7 @@ class RecipeViewModel : ViewModel() {
 
     private val retrofit = RecipeByUriService.getInstanceByUri()
     val recipeItemLD = MutableLiveData<RecipeItem?>()
-    var recipeItem: RecipeItem? = null
+    private var recipeItem: RecipeItem? = null
     val state = MutableLiveData<Int>(STATE_LOADING)
 
     fun getRecipeList(uri: String) {

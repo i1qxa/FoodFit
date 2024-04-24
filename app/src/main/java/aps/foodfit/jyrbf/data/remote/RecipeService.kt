@@ -54,7 +54,7 @@ interface RecipeService {
         }
 
 
-        var retrofitService: RecipeService? = null
+        private var retrofitService: RecipeService? = null
         fun getInstance(): RecipeService {
             if (retrofitService == null) {
                 val retrofit = Retrofit.Builder()

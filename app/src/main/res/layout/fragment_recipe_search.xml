@@ -16,6 +16,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/arrow_back"
+        android:contentDescription="@string/back"
         />
 
     <EditText
@@ -28,6 +29,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:hint="@string/enter_recipe_name"
+        android:inputType="text"
         />
 
     <ImageView
@@ -39,6 +41,7 @@
         app:layout_constraintTop_toTopOf="@id/etRecipeSearch"
         app:layout_constraintBottom_toBottomOf="@id/etRecipeSearch"
         android:layout_marginEnd="10dp"
+        android:contentDescription="@string/find_recipe"
         />
 
     <androidx.recyclerview.widget.RecyclerView

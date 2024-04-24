@@ -1,12 +1,12 @@
 package aps.foodfit.jyrbf.ui.racion
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import aps.foodfit.jyrbf.R
@@ -16,8 +16,6 @@ import aps.foodfit.jyrbf.ui.new_racion.AddNewRacionFragment
 import aps.foodfit.jyrbf.ui.new_racion.AddNewRacionViewModel
 import aps.foodfit.jyrbf.ui.racion.racion_item.RacionItemFragment
 import aps.foodfit.jyrbf.ui.racion.rv.RacionRVAdapter
-import aps.foodfit.jyrbf.ui.recipe_list.RecipeListFragment
-import aps.foodfit.jyrbf.ui.recipe_list.recipe.RecipeFragment
 
 const val RACION_NAME = "racion_name"
 class RacionFragment : Fragment() {

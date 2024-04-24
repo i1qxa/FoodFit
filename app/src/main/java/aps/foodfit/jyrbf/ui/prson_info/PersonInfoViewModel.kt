@@ -16,7 +16,11 @@ class PersonInfoViewModel(application: Application) : AndroidViewModel(applicati
 
     private var currentData = PersonInfo("0","0","0")
     val dataLD = MutableLiveData<PersonInfo>()
-    private var currentState = PersonInfoState(false, false, false)
+    private var currentState = PersonInfoState(
+        weightState = false,
+        heightState = false,
+        energyState = false
+    )
     val stateLD = MutableLiveData<PersonInfoState>(currentState)
     init {
         val initData = PersonInfo(

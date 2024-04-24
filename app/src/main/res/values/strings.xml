@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">FoodFit</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_description">В приложении FoodFit вы можете выбрать готовый рацион питания с заранее рассчитаной калорийностью. И получить подробный рецепт любого блюда из выбранного рациона</string>
     <string name="btn_forward">Далее</string>
     <string name="male">Мужской</string>
@@ -28,7 +26,6 @@
     <string name="fat">Жиры</string>
     <string name="carb">Углеводы</string>
     <string name="enter_recipe_name">Введите название рецепта</string>
-    <string name="add_tp_racion">Добавить в рацион</string>
     <string name="enter_racion_name">Введите название рациона</string>
     <string name="save">Сохранить</string>
     <string name="add">Добавить</string>
@@ -40,11 +37,6 @@
     <string name="cancel">Отменить</string>
     <string name="need_enter_racion_name">Необходимо указать название рецепта</string>
     <string name="empty_recipe_list">Список рецептов пуст. Чтобы добавить новые рецепты, нажмите кноку добавить в нижнем правом углу экрана</string>
-    <string name="breakfast">Завтрак</string>
-    <string name="lunch">Ланч</string>
-    <string name="dinner">Обед</string>
-    <string name="teatime">Чаепитие</string>
-    <string name="snack">Снеки</string>
     <string name="error_loading_data">Ошибка загрузки данных</string>
     <string name="info">Инфо</string>
     <string name="weight">Вес</string>
@@ -52,5 +44,24 @@
     <string name="weight_kg">%1$s кг</string>
     <string name="height_sm">%1$s см</string>
     <string name="energy_kcal">%1$s ккал</string>
+    <string name="background">Фон</string>
+    <string name="back">Назад</string>
+    <string name="create_racion">Создать рацион</string>
+    <string name="male_gender">Мужской пол</string>
+    <string name="female_gender">Женский пол</string>
+    <string name="edit_weight">Изменить вес</string>
+    <string name="edit_height">Изменить рост</string>
+    <string name="edit_calories">Изменить норму каллорий</string>
+    <string name="add_recipe">Добавить рецепт к рациону</string>
+    <string name="recipe_logo">Изображение рецепта</string>
+    <string name="find_recipe">Найти рецепт</string>
+    <string name="app_logo">Логотип приложения</string>
+    <string name="ingredient_logo">Изображение ингредиента</string>
+    <string name="racion_logo">Изображение рациона</string>
+    <string name="background_calories">Фон поля каллории</string>
+    <string name="background_protein">Фон поля белки</string>
+    <string name="background_fat">Фон поля жиры</string>
+    <string name="background_carbs">Фон поля углеводы</string>
+    <string name="energy_normal">Суточная калорийность</string>
 
 </resources>

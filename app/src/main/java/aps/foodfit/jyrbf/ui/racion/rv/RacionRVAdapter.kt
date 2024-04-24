@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.ListAdapter
 import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.domain.Racion
 import aps.foodfit.jyrbf.domain.firstCharToUpperCase
-import kotlinx.coroutines.Dispatchers
 
 class RacionRVAdapter : ListAdapter<Racion, RacionViewHolder>(RacionDiffCallBack()) {
 

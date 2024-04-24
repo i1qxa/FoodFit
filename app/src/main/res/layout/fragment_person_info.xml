@@ -16,6 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/main_background_bottom"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/background"
         />
 
     <com.google.android.material.card.MaterialCardView
@@ -65,7 +66,6 @@
                 app:layout_constraintEnd_toStartOf="@id/btnEditWeight"
                 app:layout_constraintTop_toBottomOf="@id/glWeight"
                 android:layout_marginStart="20dp"
-                android:text="123"
                 android:fontFamily="@font/playfair_display"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -81,7 +81,6 @@
                 app:layout_constraintEnd_toStartOf="@id/btnEditWeight"
                 app:layout_constraintTop_toBottomOf="@id/glWeight"
                 android:layout_marginStart="20dp"
-                android:text="123"
                 android:fontFamily="@font/playfair_display"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -99,6 +98,7 @@
                 app:layout_constraintTop_toBottomOf="@id/glWeight"
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/edit"
+                android:contentDescription="@string/edit_weight"
                 />
 
 
@@ -155,7 +155,6 @@
                 app:layout_constraintEnd_toStartOf="@id/btnEditHeight"
                 app:layout_constraintTop_toBottomOf="@id/glHeight"
                 android:layout_marginStart="20dp"
-                android:text="123"
                 android:fontFamily="@font/playfair_display"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -171,7 +170,6 @@
                 app:layout_constraintEnd_toStartOf="@id/btnEditHeight"
                 app:layout_constraintTop_toBottomOf="@id/glHeight"
                 android:layout_marginStart="20dp"
-                android:text="123"
                 android:fontFamily="@font/playfair_display"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -189,6 +187,7 @@
                 app:layout_constraintTop_toBottomOf="@id/glHeight"
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/edit"
+                android:contentDescription="@string/edit_height"
                 />
 
 
@@ -230,7 +229,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/glEnergy"
                 android:layout_marginStart="40dp"
-                android:text="Суточная калорийность"
+                android:text="@string/energy_normal"
                 android:fontFamily="@font/playfair_display"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -245,7 +244,6 @@
                 app:layout_constraintEnd_toStartOf="@id/btnEditEnergy"
                 app:layout_constraintTop_toBottomOf="@id/glEnergy"
                 android:layout_marginStart="20dp"
-                android:text="123"
                 android:fontFamily="@font/playfair_display"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -261,7 +259,6 @@
                 app:layout_constraintEnd_toStartOf="@id/btnEditEnergy"
                 app:layout_constraintTop_toBottomOf="@id/glEnergy"
                 android:layout_marginStart="20dp"
-                android:text="123"
                 android:fontFamily="@font/playfair_display"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -279,6 +276,7 @@
                 app:layout_constraintTop_toBottomOf="@id/glEnergy"
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/edit"
+                android:contentDescription="@string/edit_calories"
                 />
 
 

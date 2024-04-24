@@ -2,7 +2,6 @@ package aps.foodfit.jyrbf.data.remote
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import aps.foodfit.jyrbf.data.remote.NutrientItem
 
 @Serializable
 data class TotalNutrient(

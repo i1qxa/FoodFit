@@ -1,10 +1,7 @@
 package aps.foodfit.jyrbf.domain
 
 import android.content.Context
-import android.content.res.AssetManager
 import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
-import androidx.core.net.toUri
 
 data class Racion(
     val name:String,
@@ -28,15 +25,6 @@ data class Racion(
                 context.getBitmapByNameFromAssets(imgLocal)
             }
         }
-    }
-
-//    val savedImg = Drawable.createFromPath("file:///android_asset/${imgLocal}")
-
-    fun getDrawableFromAsset():Drawable?{
-//        val assetManager = context.assets
-//        val inputStream = assetManager.open(imgLocal)
-//        Drawable.createFromPath()
-        return Drawable.createFromPath("file:///android_asset/${imgLocal}")
     }
 
 }

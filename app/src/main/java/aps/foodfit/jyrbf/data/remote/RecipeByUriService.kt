@@ -39,7 +39,7 @@ interface RecipeByUriService {
         }
 
 
-        var retrofitService: RecipeByUriService? = null
+        private var retrofitService: RecipeByUriService? = null
 
         fun getInstanceByUri(): RecipeByUriService {
             if (retrofitService == null) {
