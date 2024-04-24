@@ -16,7 +16,7 @@ class RecipeListViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     fun setupTextForSearch(query:String){
-        recipeSearch.value = query
+        recipeSearch.value = "%$query%"
     }
 
 }
