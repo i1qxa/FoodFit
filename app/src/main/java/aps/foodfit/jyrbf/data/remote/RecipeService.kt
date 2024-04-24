@@ -12,8 +12,10 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
-const val APP_ID = "691af888"
-const val APP_KEY = "d10b738bb995f60e7a8bbec9fd83d020"
+//const val APP_ID = "691af888"
+//const val APP_KEY = "d10b738bb995f60e7a8bbec9fd83d020"
+const val APP_ID = "f917d997"
+const val APP_KEY = "2de9861f4ed4ce2f9c47efa7edf29566"
 const val BASE_URL = "https://api.edamam.com/api/recipes/v2/"
 const val BASE_URL_BY_URI = "https://api.edamam.com/api/recipes/v2/by-uri/"
 
@@ -28,14 +30,6 @@ interface RecipeService {
     )
             : Response<RecipeResponseBody>
 
-//    @GET("?")
-//    suspend fun getRecipeByUri(
-//        @Query("type") type: String,
-//        @Query("uri") uri: String,
-//        @Query("app_id") appId: String,
-//        @Query("app_key") appKey: String
-//    )
-//            : Response<RecipeResponseBody>
 
     companion object {
 
@@ -70,19 +64,5 @@ interface RecipeService {
             return retrofitService!!
         }
 
-//        fun getInstanceByUri(): RecipeService {
-//            if (retrofitService == null) {
-//                val retrofit = Retrofit.Builder()
-//                    .baseUrl(BASE_URL_BY_URI)
-//                    .client(createOkHttpClient())
-//                    .addConverterFactory(Json {
-//                        ignoreUnknownKeys = true
-//                        allowSpecialFloatingPointValues = true
-//                    }.asConverterFactory("application/json".toMediaType()))
-//                    .build()
-//                retrofitService = retrofit.create(RecipeService::class.java)
-//            }
-//            return retrofitService!!
-//        }
     }
 }
