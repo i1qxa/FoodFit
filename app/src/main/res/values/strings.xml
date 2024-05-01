@@ -63,5 +63,6 @@
     <string name="background_fat">Фон поля жиры</string>
     <string name="background_carbs">Фон поля углеводы</string>
     <string name="energy_normal">Суточная калорийность</string>
+    <string name="clear_recipe_search">Очистить поле поиска рецептов</string>
 
 </resources>

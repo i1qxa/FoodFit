@@ -12,8 +12,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
-//const val APP_ID = "691af888"
-//const val APP_KEY = "d10b738bb995f60e7a8bbec9fd83d020"
 const val APP_ID = "f917d997"
 const val APP_KEY = "2de9861f4ed4ce2f9c47efa7edf29566"
 const val BASE_URL = "https://api.edamam.com/api/recipes/v2/"

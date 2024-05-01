@@ -7,30 +7,62 @@
     tools:context=".ui.recipe_list.RecipeListFragment">
 
 
-    <EditText
-        android:id="@+id/etRecipeSearch"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRecipeName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnSearch"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:hint="@string/enter_recipe_name"
-        android:inputType="text"
-        />
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/etRecipeSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_recipe_name"
+            android:inputType="text"
+            android:autofillHints="" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
-        android:id="@+id/btnSearch"
+        android:id="@+id/btnClearInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/search_btn"
+        android:src="@drawable/remove"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/etRecipeSearch"
-        app:layout_constraintBottom_toBottomOf="@id/etRecipeSearch"
+        app:layout_constraintTop_toTopOf="@id/tilRecipeName"
+        app:layout_constraintBottom_toBottomOf="@id/tilRecipeName"
         android:layout_marginEnd="10dp"
-        android:contentDescription="@string/find_recipe"
+        android:contentDescription="@string/clear_recipe_search"
         />
+
+<!--    <EditText-->
+<!--        android:id="@+id/etRecipeSearch"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/btnSearch"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_marginStart="5dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:hint="@string/enter_recipe_name"-->
+<!--        android:inputType="text"-->
+<!--        />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/btnSearch"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/search_btn"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@id/etRecipeSearch"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/etRecipeSearch"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:contentDescription="@string/find_recipe"-->
+<!--        />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecipeList"
@@ -38,7 +70,7 @@
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etRecipeSearch"
+        app:layout_constraintTop_toBottomOf="@id/tilRecipeName"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="5dp"
         android:layout_marginTop="10dp"
