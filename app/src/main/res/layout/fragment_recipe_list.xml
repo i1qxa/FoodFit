@@ -39,30 +39,6 @@
         android:contentDescription="@string/clear_recipe_search"
         />
 
-<!--    <EditText-->
-<!--        android:id="@+id/etRecipeSearch"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toStartOf="@id/btnSearch"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_marginStart="5dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:hint="@string/enter_recipe_name"-->
-<!--        android:inputType="text"-->
-<!--        />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/btnSearch"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/search_btn"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@id/etRecipeSearch"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/etRecipeSearch"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:contentDescription="@string/find_recipe"-->
-<!--        />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecipeList"

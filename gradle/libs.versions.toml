@@ -1,8 +1,13 @@
 [versions]
+adsIdentifier = "1.0.0-alpha05"
+afAndroidSdk = "6.13.0"
+firebaseBom = "32.8.1"
+firebaseMessaging = "23.4.1"
+googleServices = "4.4.1"
 agp = "8.3.2"
 converterScalars = "2.9.0"
 kotlin = "1.9.22"
-coreKtx = "1.13.0"
+coreKtx = "1.13.1"
 appcompat = "1.6.1"
 kotlinxSerializationJson = "1.6.3"
 loggingInterceptor = "4.11.0"
@@ -16,7 +21,7 @@ roomKtx = "2.6.1"
 legacySupportV4 = "1.0.0"
 lifecycleLivedataKtx = "2.7.0"
 lifecycleViewmodelKtx = "2.7.0"
-fragmentKtx = "1.6.2"
+fragmentKtx = "1.7.0"
 translate = "17.0.2"
 coil = "2.6.0"
 
@@ -43,7 +48,13 @@ logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", ver
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterScalars" }
 retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinxSerializationConverter" }
-translate = { module = "com.google.mlkit:translate", version.ref = "translate" }
+translate = { module = "com.google.mlkit:translate", version.ref = "translate"}
+google-services = { group = "com.google.gms", name = "google-services", version.ref = "googleServices" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+af-android-sdk = { module = "com.appsflyer:af-android-sdk", version.ref = "afAndroidSdk" }
+androidx-ads-identifier = { module = "androidx.ads:ads-identifier", version.ref = "adsIdentifier" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+
 
 
 [plugins]

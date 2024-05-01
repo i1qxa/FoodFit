@@ -64,5 +64,12 @@
     <string name="background_carbs">Фон поля углеводы</string>
     <string name="energy_normal">Суточная калорийность</string>
     <string name="clear_recipe_search">Очистить поле поиска рецептов</string>
+    <string name="dialog_title">Ошибка</string>
+    <string name="dialog_text">Отсутствует подключение к сети интернет.</string>
+    <string name="btn_check_internet">Проверить</string>
+    <string name="request_perms_title">Запрос разрешения на показ уведомлений</string>
+    <string name="allow">Разрешить</string>
+    <string name="dis_allow">Запретить</string>
+    <string name="request_dialog_text">Разрешите получение уведомлений, чтобы быть в курсе новых рецептов и рационов.</string>
 
 </resources>

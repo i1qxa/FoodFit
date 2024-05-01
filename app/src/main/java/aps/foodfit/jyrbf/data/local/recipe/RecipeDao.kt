@@ -20,6 +20,9 @@ interface RecipeDao {
             "SUM(carbPerGram*weightInGrams) as totalCarb, isPrePopulate FROM recipedb GROUP BY racionName")
     fun getListOfRacion():LiveData<List<Racion>>
 
+    @Query("SELECT count(*) FROM RECIPEDB")
+    suspend fun getAmountOfRecipes():Int
+
     @Query("SELECT * FROM RecipeDB WHERE racionName=:racionName")
     fun getRacion(racionName:String):LiveData<List<RecipeDB>>
 

@@ -69,4 +69,9 @@ dependencies {
     implementation(libs.coil)
     implementation (libs.translate)
     implementation ("com.github.AAChartModel:AAChartCore-Kotlin:7.2.1")
+    //SDK'S
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.messaging)
+    implementation (libs.af.android.sdk)
+    implementation(libs.androidx.ads.identifier)
 }
