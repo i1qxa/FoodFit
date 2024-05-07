@@ -13,8 +13,8 @@ android {
         applicationId = "aps.foodfit.jyrbf"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.2"
+        versionCode = 7
+        versionName = "1.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.coil)
     implementation (libs.translate)
     implementation ("com.github.AAChartModel:AAChartCore-Kotlin:7.2.1")
+    implementation (libs.androidx.datastore.preferences)
     //SDK'S
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)
