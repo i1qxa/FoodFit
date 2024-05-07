@@ -18,8 +18,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import aps.foodfit.jyrbf.R
 import aps.foodfit.jyrbf.databinding.ActivityMainBinding
+import aps.foodfit.jyrbf.domain.APPS_PREFS_DATA
 import aps.foodfit.jyrbf.domain.InternetConnectionStatus
+import aps.foodfit.jyrbf.domain.dataStore
 import aps.foodfit.jyrbf.ui.welcome.FOOD_FIT_PREFS_NAME
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.FlowCollector
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 
 const val SHOULD_REQUEST_NOTIFICATION_PERMISSIONS = "should_request_perms"
 
@@ -31,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -40,6 +48,17 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         checkInternetConnection()
         observeInternetStatus()
+        observeTestPrefsData()
+    }
+
+    private fun observeTestPrefsData(){
+        CoroutineScope(Dispatchers.IO).launch {
+            this@MainActivity.dataStore.data.collect() {
+                val a = it[APPS_PREFS_DATA]
+                val b = a
+            }
+        }
+
     }
 
     private fun checkInternetConnection() {
