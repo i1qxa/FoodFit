@@ -25,6 +25,7 @@ lifecycleViewmodelKtx = "2.7.0"
 fragmentKtx = "1.7.0"
 translate = "17.0.2"
 coil = "2.6.0"
+playServicesAdsIdentifier = "18.0.1"
 
 
 [libraries]
@@ -56,6 +57,7 @@ firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging
 af-android-sdk = { module = "com.appsflyer:af-android-sdk", version.ref = "afAndroidSdk" }
 androidx-ads-identifier = { module = "androidx.ads:ads-identifier", version.ref = "adsIdentifier" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+play-services-ads-identifier = { group = "com.google.android.gms", name = "play-services-ads-identifier", version.ref = "playServicesAdsIdentifier" }
 
 
 

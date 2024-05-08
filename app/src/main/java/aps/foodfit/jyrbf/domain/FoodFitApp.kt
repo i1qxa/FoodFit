@@ -1,7 +1,6 @@
 package aps.foodfit.jyrbf.domain
 
 import android.app.Application
-import android.content.Context
 import aps.foodfit.jyrbf.data.local.recipe.RecipeDataBase
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
@@ -13,7 +12,7 @@ import kotlinx.coroutines.launch
 const val FOOD_FIT_APPSFLYER_KEY = "wacAvoJ7QS7CgrtJTJsX4V"
 
 
-class FoodFitApp:Application() {
+class FoodFitApp : Application() {
 
 
     override fun onCreate() {
@@ -24,12 +23,7 @@ class FoodFitApp:Application() {
                 if (anyMutableMap != null) {
                     CoroutineScope(Dispatchers.IO).launch {
                         if (db.getAmountOfRecipes() > -1) {
-//                            FoodFitAppsData.foodFitAppsData.postValue(anyMutableMap)
-                            updateAppsPrefsData(this@FoodFitApp,
-                                (anyMutableMap["af_status"]?:"").toString()
-                            )
-                            val a = anyMutableMap
-                            val b = a
+                            saveFoodFitApps(this@FoodFitApp, anyMutableMap)
                         }
                     }
                 }

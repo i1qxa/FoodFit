@@ -19,8 +19,7 @@ const val BREAKFAST = "breakfast"
 const val DINNER = "dinner"
 const val LUNCH = "lunch"
 const val SNACK = "snack"
-const val FOOD_FIT_PREFS_NAME = "food_fit_prefs_name"
-val APPS_PREFS_DATA = stringPreferencesKey("apps_prefs_data")
+const val ADRESS_FOOD_FIT = "mcpucpz{ec0ujqr"
 suspend fun Context.saveBitmap(fileName: String, bitmap: Bitmap) = withContext(Dispatchers.IO) {
     val file = File(filesDir, "${fileName}.webp")
     file.outputStream().use {
@@ -63,11 +62,7 @@ fun String.firstCharToUpperCase():String{
     return "$firstChar${strTrim.removeRange(0..0)}"
 }
 
-suspend fun updateAppsPrefsData(context:Context, data:String){
-    context.dataStore.edit { preferences ->
-        preferences[APPS_PREFS_DATA] = data
-    }
-}
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = FOOD_FIT_PREFS_NAME)
+
+
 

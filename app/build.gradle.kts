@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.play.services.ads.identifier)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     //retrofit
